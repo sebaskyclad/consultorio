@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Consultorios</title>
+</head>
+<body>
+
+<h1>Lista de Consultorios</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Numero</th>
+    <th>Piso</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="consultorio : ${consultorios}">
+    <td th:text="${consultorio.numero}"></td>
+    <td th:text="${consultorio.piso}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Cita</title>
+</head>
+<body>
+
+<h1>Agregar Cita</h1>
+
+<form action="/citas/add" th:object="${citaRequest}" method="post">
+    <label for="fechaInicio">Fecha Inicio</label>
+    <input type="datetime-local" th:field="*{fechaInicio}" required />
+
+    <label for="fechaFin">Fecha Fin</label>
+    <input type="datetime-local" th:field="*{fechaFin}" required />
+
+    <label for="doctor">Doctor</label>
+    <select th:field="*{doctor}" required>
+        <option th:each="doctor : ${doctors}" th:value="${doctor.id}" th:text="${doctor.nombre}"></option>
+    </select>
+
+    <label for="consultorio">Consultorio</label>
+    <select th:field="*{consultorio}" required>
+        <option th:each="consultorio : ${consultorios}" th:value="${consultorio.id}" th:text="Consultorio ${consultorio.numero}"></option>
+    </select>
+
+    <label for="nombre">Nombre Paciente</label>
+    <input type="text" th:field="*{nombre}" required />
+
+    <label for="apellidoP">Apellido Paterno</label>
+    <input type="text" th:field="*{apellidoP}" required />
+
+    <label for="apellidoM">Apellido Materno</label>
+    <input type="text" th:field="*{apellidoM}" required />
+
+    <button type="submit">Agregar Cita</button>
+</form>
+
+</body>
+</html>

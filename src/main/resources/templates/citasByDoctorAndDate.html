@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Citas de Doctor</title>
+</head>
+<body>
+
+<h1>Citas del Doctor</h1>
+<p>Fecha: <span th:text="${date}"></span></p>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Paciente</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Fin</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cita : ${citas}">
+    <td th:text="${cita.paciente.nombre + ' ' + cita.paciente.apellidoP + ' ' + cita.paciente.apellidoM}"></td>
+    <td th:text="${cita.fechaInicio}"></td>
+    <td th:text="${cita.fechaFin}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/citas/add">Agregar Nueva Cita</a>
+
+</body>
+</html>
